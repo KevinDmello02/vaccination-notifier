@@ -27,10 +27,11 @@ app.listen(port, () => {
 function sendRequests() {
     let date = new Date;
     date = moment(date).format('DD-MM-YYYY');
-    request(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=401303&date=${date}`, { json: false }, (err, res, body) => {
-        if (err) { return console.log(err); }        
-        let data = JSON.parse(body);
+    request(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=401303&date=${date}`, { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }  
+        let data = body;      
         data = data.centers;
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
             if (data[i].sessions[0].available_capacity_dose1 !=0 ) {
                 sendMail(data[i]);

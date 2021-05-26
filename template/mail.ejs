@@ -1,0 +1,13 @@
+<% data.forEach(function(data) { %>
+    <div style="margin: 5%;">
+        <b style="font-size: 120%;">
+            <span style="color: #174f9c;"><%= data.name%></span><br>
+            <span style="color: #174f9c;">Address:</span> <%= data.address %><br>
+            <span style="color: #174f9c;">Pincode:</span> <%= data.pincode %><br>
+            has <span style="color: green"><%= data.available %></span> slots Available!.
+        </b><br>
+    </div>
+    
+<% })%>
+
+<h6 style="color:red; padding-top: 5%;">NOTE: This is an auto generated mail.</h6>
